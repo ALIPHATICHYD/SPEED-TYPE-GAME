@@ -26,3 +26,18 @@ button{
     bottom: 2rem;
     left: 2rem;
 }
+
+.settings{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 4rem;
+    color: #fff;
+    background-color: hsl(316, 50%, 24%);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    transform: translateY(-100%);
+    transition: 0.7s ease-in-out;
+}
