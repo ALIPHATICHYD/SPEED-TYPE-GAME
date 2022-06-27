@@ -45,3 +45,15 @@ button{
 .settings.show{
     transform: translateY(0);
 }
+
+.select{
+    margin-left: 0.5rem;
+    cursor: pointer;
+    width: 10rem;
+    padding: 0.5rem;
+    appearance: none;
+    background-color: #4b81b6;
+    color: #fff;
+    border: 0.2rem;
+
+}
