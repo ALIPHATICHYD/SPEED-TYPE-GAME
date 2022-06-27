@@ -41,3 +41,7 @@ button{
     transform: translateY(-100%);
     transition: 0.7s ease-in-out;
 }
+
+.settings.show{
+    transform: translateY(0);
+}
