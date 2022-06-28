@@ -57,3 +57,7 @@ button{
     border: 0.2rem;
 
 }
+
+select:focus, button:focus, .container input{
+    outline: 0;
+}
