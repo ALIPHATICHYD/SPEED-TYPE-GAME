@@ -97,3 +97,10 @@ select:focus, button:focus, .container input{
     color: hsl(217, 54%, 11%);
     opacity: 0.5;
 }
+
+.score-container{
+    position: absolute;
+    top: 5rem;
+    right: 1rem;
+    font-size: 0.9rem;
+}
