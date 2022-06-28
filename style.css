@@ -78,3 +78,7 @@ select:focus, button:focus, .container input{
     padding: 0.5rem;
     border-radius: 8px;
 }
+
+.container h1{
+    margin: 0;
+}
