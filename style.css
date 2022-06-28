@@ -72,3 +72,9 @@ select:focus, button:focus, .container input{
     text-align: center;
     width: 480px;
 }
+
+.container h2{
+    background-color: hsl(217, 54%, 11%);
+    padding: 0.5rem;
+    border-radius: 8px;
+}
