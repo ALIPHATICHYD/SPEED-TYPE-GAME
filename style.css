@@ -92,3 +92,8 @@ select:focus, button:focus, .container input{
     margin-top: 0.5rem;
     color: hsl(217, 54%, 11%);
 }
+
+.container input::placeholder{
+    color: hsl(217, 54%, 11%);
+    opacity: 0.5;
+}
