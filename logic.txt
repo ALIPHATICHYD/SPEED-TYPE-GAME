@@ -1,1 +1,2 @@
 Focus on the input when the game starts 
+Generates random words
