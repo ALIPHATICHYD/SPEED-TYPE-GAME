@@ -61,3 +61,14 @@ button{
 select:focus, button:focus, .container input{
     outline: 0;
 }
+
+.container{
+    background-color: hsl(216, 50%, 16%);
+    padding: 1.2rem;
+    border-radius: 4px;
+    color: white;
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.3);
+    position: relative;
+    text-align: center;
+    width: 480px;
+}
