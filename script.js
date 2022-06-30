@@ -87,3 +87,15 @@ function updateScore() {
     score += 2;
     scoreEl.innerHTML = score;
 }
+
+//Timing Function
+function updateTime() {
+    time--;
+    timeEl.innerHTML = `${time}s`;
+
+    if (time === 0) {
+        clearInterval(timeInterval);
+        gameOver();
+    }
+}
+
