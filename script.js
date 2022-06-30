@@ -152,3 +152,5 @@ inputText.addEventListener('input', (e) => {
         }
     }
 });
+
+updateTime();
