@@ -127,3 +127,9 @@ async function addWordToDOM(randomWor) {
     word.innerHTML = randomWor;
     randomWord = randomWor;
 }
+
+// Settings button Functionality
+//button on click
+settingsBtn.addEventListener('click', () => {
+    settings.classList.toggle('show');
+});
