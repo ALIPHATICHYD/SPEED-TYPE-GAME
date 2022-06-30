@@ -141,3 +141,14 @@ inputText.addEventListener('input', (e) => {
         addWordToDOM(data[Math.floor(Math.random() * 5000)]);
         updateScore();
         inputText.value = '';
+
+         //time difficulty  functionality
+        if (difficulty === 'hard') {
+            time += 1;
+        } else if (difficulty === 'medium') {
+            time += 2;
+        } else {
+            time += 4;
+        }
+    }
+});
