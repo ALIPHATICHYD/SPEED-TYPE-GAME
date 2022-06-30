@@ -59,3 +59,9 @@ const words = [
     'is',
     'difficult',
 ];
+
+let data,
+    randomWord,
+    score = 0,
+    difficulty,
+    time = 11;
