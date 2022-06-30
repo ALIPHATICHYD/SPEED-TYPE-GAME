@@ -133,3 +133,11 @@ async function addWordToDOM(randomWor) {
 settingsBtn.addEventListener('click', () => {
     settings.classList.toggle('show');
 });
+
+//Event Listener for the Input field matching the typed text
+inputText.addEventListener('input', (e) => {
+    const typedWord = e.target.value.toLowerCase();
+    if (typedWord === randomWord) {
+        addWordToDOM(data[Math.floor(Math.random() * 5000)]);
+        updateScore();
+        inputText.value = '';
