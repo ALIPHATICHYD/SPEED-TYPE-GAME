@@ -99,3 +99,14 @@ function updateTime() {
     }
 }
 
+function gameOver() {
+    inputText.disabled = true;
+    time = 0;
+    endGameEl.innerHTML = `
+    <h1>Time ran out</h1>
+    <p>Here is your Final score: ${score}</p> 
+    <button onClick='clearUi()'> Go back</button>`;
+    inputText.style.backgroundColor = '#576272';
+    inputText.placeholder = 'Start Game Again';
+    endGameEl.style.display = 'flex';
+}
