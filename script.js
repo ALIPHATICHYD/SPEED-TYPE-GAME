@@ -110,3 +110,14 @@ function gameOver() {
     inputText.placeholder = 'Start Game Again';
     endGameEl.style.display = 'flex';
 }
+
+
+function clearUi() {
+    endGameEl.style.display = 'none';
+}
+
+difficultySelect.addEventListener('change', (e) => {
+    difficulty = e.target.value.toLowerCase();
+    console.log(difficulty);
+});
+const timeInterval = setInterval(updateTime, 1000);
