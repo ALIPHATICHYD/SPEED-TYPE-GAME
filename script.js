@@ -65,3 +65,14 @@ let data,
     score = 0,
     difficulty,
     time = 11;
+
+// API call and generates Random numbers of 5000 words
+randomWordsFunc = async() => {
+    const response = await fetch(
+        'https://random-word-api.herokuapp.com/word?number=5000'
+    );
+    data = await response.json();
+    if (data) {
+        addWordToDOM(data[Math.floor(Math.random() * 5000)]);
+    }
+};
