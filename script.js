@@ -60,6 +60,10 @@ const words = [
     'difficult',
 ];
 
+{
+    /* <button onClick='window.location.reload()'>Reload</button>`; */
+}
+
 let data,
     randomWord,
     score = 0,
