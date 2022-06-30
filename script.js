@@ -76,3 +76,14 @@ randomWordsFunc = async() => {
         addWordToDOM(data[Math.floor(Math.random() * 5000)]);
     }
 };
+
+randomWordsFunc();
+
+//Focus on Input Field on load
+inputText.focus();
+
+// Function To Update Score
+function updateScore() {
+    score += 2;
+    scoreEl.innerHTML = score;
+}
