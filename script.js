@@ -121,3 +121,9 @@ difficultySelect.addEventListener('change', (e) => {
     console.log(difficulty);
 });
 const timeInterval = setInterval(updateTime, 1000);
+
+//Function to add word to  DOM
+async function addWordToDOM(randomWor) {
+    word.innerHTML = randomWor;
+    randomWord = randomWor;
+}
