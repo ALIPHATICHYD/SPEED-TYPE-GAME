@@ -1,160 +1,141 @@
-const settingsBtn = document.querySelector('#setting-btn');
+const settingsBtn = document.querySelector('#settings-button');
 const settings = document.querySelector('#settings');
 const difficultySelect = document.querySelector('#difficulty');
 const word = document.querySelector('#word');
-const inputText = document.querySelector('#input-text');
-const scoreEl = document.querySelector('#score');
-const timeEl = document.querySelector('#time');
-const endGameEl = document.querySelector('#end-game-container');
+const inputText = document.querySelector('#input-text')
+const scoreEl = document.querySelector('span#score')
+const timeEl = document.querySelector('span#time')
+const endGameEl = document.querySelector('#end-game-container')
 
-
-const words = [
+const wordList = [
+    'ukraine', 
+    'michael',
+    'hula-baloo',
+    'singing',
+    'procurement',
+    'independent',
+    'steps-online',
     'good',
     'south',
-    'independent',
-    'steering',
     'gold',
     'home',
     'artificial',
-    'intelligence',
-    'nine',
-    'fame',
-    'dismiss',
-    'drop',
-    'caring',
-    'sing',
-    'utensil',
-    'airplane',
-    'pilot',
-    'basket',
-    'juice',
-    'ukraine',
-    'captain',
-    'this',
-    'game',
-    'is',
-    'difficult',
-    'south',
-    'independent',
     'steering',
-    'gold',
-    'home',
-    'artificial',
-    'intelligence',
     'nine',
     'fame',
     'dismiss',
-    'drop',
-    'caring',
-    'sing',
-    'utensil',
-    'airplane',
-    'pilot',
-    'basket',
-    'juice',
-    'ukraine',
-    'captain',
-    'this',
+    'basement',
+    'stupefy',
+    'amazingly',
+    'beautiful',
+    'difficult',
     'game',
     'is',
-    'difficult',
+    'smooth',
+    'able',
+    'agility',
+    'consecrate',
+    'sing',
+    'airplane',
+    'drop'
 ];
 
-{
-    /* <button onClick='window.location.reload()'>Reload</button>`; */
-}
-
-let data,
-    randomWord,
-    score = 0,
-    difficulty,
-    time = 11;
-
-// API call and generates Random numbers of 5000 words
-randomWordsFunc = async() => {
-    const response = await fetch(
-        'https://random-word-api.herokuapp.com/word?number=5000'
-    );
-    data = await response.json();
-    if (data) {
-        addWordToDOM(data[Math.floor(Math.random() * 5000)]);
-    }
-};
-
-randomWordsFunc();
-
-//Focus on Input Field on load
+//focus on input field on load 
 inputText.focus();
 
-// Function To Update Score
-function updateScore() {
-    score += 2;
-    scoreEl.innerHTML = score;
-}
+//initialize random word variable
+let randomWord;
 
-//Timing Function
+//initialize score variable
+let score = 0;
+
+//initialize time number
+let time = 10;
+
+//initializing time intervals for the count down 1s basically.
+const timeInterval = setInterval(updateTime, 1000);
+
+//counting down time
+
+//generate random word function
+function getRandomWord() {
+    return wordList[Math.floor(Math.random()* wordList.length)];
+};
+
+//0.366*20=17.8789
+
+// updateTime function
 function updateTime() {
     time--;
     timeEl.innerHTML = `${time}s`;
 
-    if (time === 0) {
+    if (time===0){
         clearInterval(timeInterval);
+        //end Game
         gameOver();
-    }
+    };
 }
 
 function gameOver() {
-    inputText.disabled = true;
-    time = 0;
     endGameEl.innerHTML = `
     <h1>Time ran out</h1>
-    <p>Here is your Final score: ${score}</p> 
-    <button onClick='clearUi()'> Go back</button>`;
-    inputText.style.backgroundColor = '#576272';
-    inputText.placeholder = 'Start Game Again';
+    <p>Here is your final score ${score}</p>
+    <button onclick="window.location.reload()">Reload</button>`;
     endGameEl.style.display = 'flex';
 }
 
+//function to add word to dom 
+function addWordToDom() {
+    randomWord = getRandomWord();
+    word.innerHTML = randomWord;    
+};
 
-function clearUi() {
-    endGameEl.style.display = 'none';
-}
+function updateScore(){
+    score += 2;
+    scoreEl.innerHTML = score;
+};
 
-difficultySelect.addEventListener('change', (e) => {
-    difficulty = e.target.value.toLowerCase();
-    console.log(difficulty);
-});
-const timeInterval = setInterval(updateTime, 1000);
+addWordToDom();
 
-//Function to add word to  DOM
-async function addWordToDOM(randomWor) {
-    word.innerHTML = randomWor;
-    randomWord = randomWor;
-}
+//listening for input events and matching words
+inputText.addEventListener('input', (e) => {
+    console.log(e.target);
+    let typedWord = e.target.value;
+    if (typedWord === randomWord){
+        addWordToDom();
+        updateScore();
 
-// Settings button Functionality
+        //to clear input field after correct attempt
+        e.target.value = '';
+
+        //time difficulty functionality
+        if (difficultySelect.value === "Hard")
+        {
+            time += 1;
+        }
+        else if (difficultySelect.value === "Medium")
+        {
+            time += 2;
+        }
+        else 
+        {
+            time += 4;
+        };
+
+
+        updateTime();
+    }
+})
+
+//settings button functionality 
 //button on click
+
+difficultySelect.addEventListener('change', () => {
+    // if(difficultySelect.value === 'easy') 
+    
+    console.log(difficultySelect.value);
+})
+
 settingsBtn.addEventListener('click', () => {
     settings.classList.toggle('show');
 });
-
-//Event Listener for the Input field matching the typed text
-inputText.addEventListener('input', (e) => {
-    const typedWord = e.target.value.toLowerCase();
-    if (typedWord === randomWord) {
-        addWordToDOM(data[Math.floor(Math.random() * 5000)]);
-        updateScore();
-        inputText.value = '';
-
-         //time difficulty  functionality
-        if (difficulty === 'hard') {
-            time += 1;
-        } else if (difficulty === 'medium') {
-            time += 2;
-        } else {
-            time += 4;
-        }
-    }
-});
-
-updateTime();
