@@ -1,3 +1,4 @@
+//Linking ID to javascript
 const settingsBtn = document.querySelector('#settings-button');
 const settings = document.querySelector('#settings');
 const difficultySelect = document.querySelector('#difficulty');
