@@ -7,6 +7,7 @@ const scoreEl = document.querySelector('span#score')
 const timeEl = document.querySelector('span#time')
 const endGameEl = document.querySelector('#end-game-container')
 
+//List of words to type ingame
 const wordList = [
     'ukraine', 
     'michael',
