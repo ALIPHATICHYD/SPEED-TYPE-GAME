@@ -78,6 +78,7 @@ function updateTime() {
     };
 }
 
+//Game Over Function
 function gameOver() {
     endGameEl.innerHTML = `
     <h1>Time ran out</h1>
